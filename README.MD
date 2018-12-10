@@ -1,4 +1,4 @@
-#**Sistema de Peritaje**
+#Sistema de Peritaje
 
 	Un reconocido asesor de riesgo, tiene la ardua tarea de inspeccionar todos los automóviles asegurados por
 **Su seguridad C.A**, para ello necesitar registrar cada uno de los autos conjuntamente con los datos de los
@@ -21,6 +21,6 @@ de datos:
 Se pide desarrollar el sistema Web utilizando PHP con Laravel u otro Framework actual de PHP y base de
 datos Mysql, con los modelos, migraciones, las vistas y los controladores correspondientes.
 
-##**Elaborado Por:**
+##Elaborado Por:
 
-###Yeison Fuentes###
+**Yeison Fuentes**
