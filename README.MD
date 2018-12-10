@@ -1,7 +1,7 @@
 # Sistema de Peritaje
 
-	Un reconocido asesor de riesgo, tiene la ardua tarea de inspeccionar todos los automóviles asegurados por 
-Su seguridad C.A, para ello necesitar registrar cada uno de los autos conjuntamente con los datos de los
+Un reconocido asesor de riesgo, tiene la ardua tarea de inspeccionar todos los automóviles asegurados por 
+**Su seguridad C.A**, para ello necesitar registrar cada uno de los autos conjuntamente con los datos de los
 dueños de cada uno de ellos, para ello usted cuenta con las siguientes tablas, el cual le deberá definir tipos
 de datos:
 
