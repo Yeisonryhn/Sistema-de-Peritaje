@@ -10,7 +10,7 @@ de datos:
 - Usuario (login, clave, nombre).
 
 
-##### El sistema debe tener las siguientes opciones:
+#### El sistema debe tener las siguientes opciones:
 - Registro, listado, edición y modificación de usuarios.
 - Registro, listado, edición y modificación de propietarios.
 - Realizar inspección del auto.
