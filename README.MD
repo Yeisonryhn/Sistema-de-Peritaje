@@ -10,7 +10,7 @@ de datos:
 - Usuario (login, clave, nombre).
 
 
-#### El sistema debe tener las siguientes opciones:
+### El sistema debe tener las siguientes opciones:
 - Registro, listado, edición y modificación de usuarios.
 - Registro, listado, edición y modificación de propietarios.
 - Realizar inspección del auto.
@@ -21,6 +21,6 @@ de datos:
 Se pide desarrollar el sistema Web utilizando PHP con Laravel u otro Framework actual de PHP y base de
 datos Mysql, con los modelos, migraciones, las vistas y los controladores correspondientes.
 
-## Elaborado Por:
+### Elaborado Por:
 
 **Yeison Fuentes**
