@@ -12,12 +12,12 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->truncarTablas([
-    		'professions',
-    		'users'
+            'propietarios',
+            'usuarios'
     	]);
-    	$this->call(ProfessionSeeder::class);//es necesario registrar aqui los seeders que se vayan creando
-        $this->call(UserSeeder::class);//OJO CAMBIAR TODO ESTO POR LOS DEL SISTEMA DE PERITAJE
-    	// $this->call(UsersTableSeeder::class);
+    	$this->call(PropietarioSeeder::class);
+        $this->call(UsuarioSeeder::class);
+        // $this->call(UsersTableSeeder::class);
     }
 
     protected function truncarTablas(array $tablas){

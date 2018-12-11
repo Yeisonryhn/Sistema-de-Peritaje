@@ -15,11 +15,11 @@ class CreatePropietariosTable extends Migration
     {
         Schema::create('propietarios', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('cedula',10)->unique()->nullable($value=false);
-            $table->string('nombre',40)->nullable($value=false);
-            $table->string('direccion',200)->nullable($value=false);
-            $table->string('telefono',12)->nullable($value=false);
-            $table->string('email')->unique()->nullable($value=false);
+            $table->string('cedula',10)->unique();
+            $table->string('nombre',40);
+            $table->string('direccion',200);
+            $table->string('telefono',12);
+            $table->string('email')->unique();
             $table->timestamps();
         });
     }

@@ -15,9 +15,9 @@ class CreateUsuariosTable extends Migration
     {
         Schema::create('usuarios', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('login')->unique()->nullable($value=false);
-            $table->string('password')->nullable($value=false);
-            $table->integer('propietarios_id')->references('id')->on('propietarios')->nullable($value=false);
+            $table->string('login')->unique();
+            $table->string('clave');
+            $table->string('nombre');
             $table->boolean('es_admin')->default(false);
             $table->timestamps();
         });
