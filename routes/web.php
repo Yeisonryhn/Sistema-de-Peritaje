@@ -15,6 +15,8 @@ Route::get('/', 'InicioController@index');
 Route::get('/menu', 'InicioController@menu');
 //RUTAS DE USUARIOS
 Route::get('/usuarios', 'UsuarioController@index')->name('listaDeUsuarios');
+Route::post('/usuarios','UsuarioController@store');
+Route::get('/usuarios/nuevo', 'UsuarioController@create')->name('crearUsuario');
 //FIN RUTAS DE USUARIOS
 Auth::routes();
 

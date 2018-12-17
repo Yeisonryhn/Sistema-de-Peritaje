@@ -7,9 +7,10 @@ Cosas por hacer en este proyecto
 4.Crear los listados de: Usuarios, Propietarios e Inspecciones.
 5.Crear la pagina de detalles de: Usuario, Propietario e Inspecciones.
 6.Crear el módulo de usuario bien hecho.
-7.- Realizar inspección del auto.
-- Buscar propietarios.
-- Buscar autos, por marca, modelo y/o año.
+7.Realizar inspección del auto.
+8.Buscar propietarios.
+9.Buscar autos, por marca, modelo y/o año.
+10.Mejorar el layout de la pagina
 
 
 HICE LA RUTA DE LISTADO DE USUARIOS Y MOSTRE EL LISTADO

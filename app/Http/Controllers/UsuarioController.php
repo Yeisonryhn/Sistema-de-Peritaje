@@ -33,6 +33,10 @@ class UsuarioController extends Controller
     public function create()
     {
         //Registro de usuario formulario
+        return view('users.registro',
+        [
+            'titulo' => 'Crear Usuario'
+        ]);
     }
 
     /**
@@ -41,9 +45,27 @@ class UsuarioController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(/*Request $request*/)
     {
         //Ruta post para guardar el usuario en la base de datos
+
+        //validaciones que debe tener la data
+        $data = request()->validate([
+            'login' => ['unique:usuarios,login', 'required'],
+            'nombre' => 'required',
+            'clave' => [ 'required', 'min:6' , 'max:40']
+
+        ]);
+        //fin validaciones
+
+        //dd($data);
+        Usuario::create
+        ([
+            'login' => $data['login'],
+            'nombre' => $data['nombre'],
+            'clave' => bcrypt($data['clave'])
+        ]);
+        return redirect()->route('listaDeUsuarios');
     }
 
     /**

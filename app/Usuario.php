@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Usuario extends Model
 {
-    protected $fillable = ['login','clave'];
+    protected $fillable = ['login','clave','nombre'];
     protected $hidden = ['clave'];
     protected $cast = ['es_admin'=>'boolean'];
 

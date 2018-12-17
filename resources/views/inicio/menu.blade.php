@@ -8,7 +8,7 @@
 <ul>
     <li>Seccion de usuarios</li>
     <ul>
-       <li> <a href="">Registro</a> </li>
+       <li> <a href="{{route('crearUsuario')}}">Registro</a> </li>
        <li> <a href="{{route('listaDeUsuarios')}}">Listado</a> </li>
        <li> <a href="">Edicion y modificacion</a></li>
        <li> <a href="">Buscar</a></li>
