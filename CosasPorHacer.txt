@@ -1,0 +1,15 @@
+
+Cosas por hacer en este proyecto
+
+1.Crear los test a todas las vistas de este proyecto.
+2.Crear las vistas faltantes.
+3.Crear los tests de de los formularios creados.
+4.Crear los listados de: Usuarios, Propietarios e Inspecciones.
+5.Crear la pagina de detalles de: Usuario, Propietario e Inspecciones.
+6.Crear el módulo de usuario bien hecho.
+7.- Realizar inspección del auto.
+- Buscar propietarios.
+- Buscar autos, por marca, modelo y/o año.
+
+
+HICE LA RUTA DE LISTADO DE USUARIOS Y MOSTRE EL LISTADO

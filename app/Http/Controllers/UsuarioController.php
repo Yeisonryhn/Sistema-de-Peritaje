@@ -14,7 +14,15 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        //
+        //Muestra el listado de usuarios
+        $users=Usuario::all();
+        //dd($users);
+        return view('users.listado', 
+        [
+            'titulo' => 'Listado de Usuarios',
+            'usuarios' =>$users
+        ]);
+
     }
 
     /**
@@ -24,7 +32,7 @@ class UsuarioController extends Controller
      */
     public function create()
     {
-        //
+        //Registro de usuario formulario
     }
 
     /**
@@ -35,7 +43,7 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //Ruta post para guardar el usuario en la base de datos
     }
 
     /**
@@ -46,7 +54,7 @@ class UsuarioController extends Controller
      */
     public function show(Usuario $usuario)
     {
-        //
+        //Muestra el detalle de un usuario en concreto
     }
 
     /**

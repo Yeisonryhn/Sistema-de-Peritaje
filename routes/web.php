@@ -13,7 +13,9 @@
 
 Route::get('/', 'InicioController@index');
 Route::get('/menu', 'InicioController@menu');
-
+//RUTAS DE USUARIOS
+Route::get('/usuarios', 'UsuarioController@index')->name('listaDeUsuarios');
+//FIN RUTAS DE USUARIOS
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
