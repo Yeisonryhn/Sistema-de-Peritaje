@@ -14,7 +14,13 @@ class PropietarioController extends Controller
      */
     public function index()
     {
-        //
+        $owners=Propietario::all();
+
+        return view('owners.listado',
+        [
+            'titulo' => 'Listado de Propietarios',
+            'owners' => $owners,
+        ]);
     }
 
     /**
@@ -24,7 +30,10 @@ class PropietarioController extends Controller
      */
     public function create()
     {
-        //
+        return view('owners.registro',
+            [ 
+                'titulo' => "Registro de Propietarios"
+            ]);
     }
 
     /**
@@ -33,9 +42,29 @@ class PropietarioController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(/*Request $request*/)
     {
-        //
+        $data=request()->validate(
+            [  
+                'nombre' => ['required'],
+                'direccion' => ['required'],
+                'telefono'=> ['required'],
+                'email'=> ['required'],
+                'cedula'=> ['required']
+        ]);
+        //dd($data);
+        Propietario::create
+        ([
+            'cedula' => $data['cedula'],
+            'nombre' => $data['nombre'],
+            'direccion' => $data['direccion'],
+            'telefono' => $data['telefono'],
+            'email' => $data['email'],
+            
+
+        ]);
+
+        return redirect()->route('listaDePropietarios');
     }
 
     /**

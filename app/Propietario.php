@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Propietario extends Model
 {
     
-    protected $fillable = ['cedula'.'nombre','direccion','telefono','email'];
+    protected $fillable = ['cedula','nombre','direccion','telefono','email'];
 
 }

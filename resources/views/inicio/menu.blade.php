@@ -16,8 +16,8 @@
 
     <li>Seccion de Propietarios</li>
     <ul>
-       <li> <a href="">Registro</a> </li>
-       <li> <a href="">Listado</a> </li>
+       <li> <a href="{{ route('crearPropietario') }}">Registro</a> </li>
+       <li> <a href="{{route('listaDePropietarios')}}">Listado</a> </li>
        <li> <a href="">Edicion y modificacion</a></li>
        <li> <a href="">Buscar</a></li>
     </ul><br>
