@@ -5,9 +5,8 @@
 @endsection
 
 @section('contenido')
-	<h1>{{$titulo}}</h1>
 	@if($usuarios->isNotEmpty())
-		no está vacio
+		<h1>{{$titulo}}</h1>
 		<ul>
 			@foreach($usuarios as $usuario)
 				<li><strong>Login:</strong> {{$usuario['login']}} <strong>Nombre:</strong> {{$usuario['nombre']}}</li>
@@ -15,6 +14,6 @@
 		</ul>
 		
 	@else
-		Estavacio
+		<h1>No hay usuarios registrados</h1>
 	@endif
 @endsection

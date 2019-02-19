@@ -29,5 +29,10 @@
         <env name="MAIL_DRIVER" value="array"/>
         <env name="QUEUE_CONNECTION" value="sync"/>
         <env name="SESSION_DRIVER" value="array"/>
+        <env name="DB_DATABASE" value="peritaje_tests"/><!--Esta es una variable de entorno creada 
+        para ejecutar las pruebas automatizadas para que funcionen con datos de la base de datos
+        sin tener que modificar la base de datos que estamos usando para probar la aplicacion
+        en este caso, se ha creado una base de datos llamada peritaje_tets, base de datos para
+        las pruebas automatizadas!-->
     </php>
 </phpunit>
