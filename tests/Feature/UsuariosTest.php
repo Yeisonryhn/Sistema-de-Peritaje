@@ -61,7 +61,7 @@ class UsuariosTest extends TestCase
 
             ])
             ->assertRedirect('/usuarios/nuevo')//debe redireccionar a la url /usuarios/nuevo
-            ->assertSessionHasErrors();//pero ahora con este mensaje de error
+            ->assertSessionHasErrors(['login']);//pero ahora con este mensaje de error
                 
             $this->assertEquals(0,Usuario::count());
     }
