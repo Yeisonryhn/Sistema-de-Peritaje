@@ -49,8 +49,8 @@ class PropietarioController extends Controller
                 'nombre' => ['required'],
                 'direccion' => ['required'],
                 'telefono'=> ['required'],
-                'email'=> ['required'],
-                'cedula'=> ['required']
+                'email'=> ['required' ,'unique:propietarios,email' , 'email'],
+                'cedula'=> ['required','min:7' , 'max:10']
         ]);
         //dd($data);
         Propietario::create
