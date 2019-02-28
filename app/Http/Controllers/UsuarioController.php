@@ -52,7 +52,7 @@ class UsuarioController extends Controller
         //validaciones que debe tener la data
         $data = request()->validate([
             'login' => ['unique:usuarios,login', 'required'],
-            'nombre' => 'required',
+            'nombre' =>[ 'required' ],
             'clave' => [ 'required', 'min:6' , 'max:40']
 
         ]);
