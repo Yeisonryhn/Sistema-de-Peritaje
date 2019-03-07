@@ -25,7 +25,7 @@ class InicioController extends Controller
         //dd($usuario);
         return view('inicio.menu',[
             'titulo'=>'Menu Principal',
-            'usuario'=>$usuario['login']
+            /*'usuario'=>$usuario['login']*/
         ]);
     }
 }
