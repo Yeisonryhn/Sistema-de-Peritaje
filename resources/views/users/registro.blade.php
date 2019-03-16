@@ -3,6 +3,7 @@
 	{{$titulo}}
 @endsection
 
+@section(clase, "registros")
 @section('contenido')
 	
 	<h1>Ingrese sus datos para registrarse en Peritex</h1>

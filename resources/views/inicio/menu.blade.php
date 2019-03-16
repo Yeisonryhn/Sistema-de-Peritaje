@@ -3,6 +3,7 @@
     {{$titulo}}
 @endsection
 
+@section('clase', "content")
 @section('contenido')
 <h1>Bienvenido {{$usuario}} que desea hacer?.</h1>
 <ul>
@@ -24,5 +25,4 @@
     <li> <a href="">Realizar Inspeccion</a></li>
     
 </ul>
-hola
 @endsection
