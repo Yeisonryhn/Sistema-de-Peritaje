@@ -15,13 +15,13 @@ class CreateInspeccionsTable extends Migration
     {
         Schema::create('inspeccions', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('placa')->unique();
+            $table->string('placa',10);
             $table->string('marca');
             $table->string('modelo');
             $table->integer('anio');
             $table->string('estado_carro',200);
-            $table->date('fecha');
-            $table->integer('propietario_cedula')->references('cedula')->on('propietarios');
+            /*$table->date('fecha'); La fecha en la que se hizo la inspeccion*/
+            $table->string('propietario_cedula')->references('cedula')->on('propietarios');
             $table->integer('propietario_id')->references('id')->on('propietarios');
             $table->timestamps();
         });
