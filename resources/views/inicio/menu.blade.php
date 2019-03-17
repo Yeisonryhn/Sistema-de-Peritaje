@@ -3,7 +3,7 @@
     {{$titulo}}
 @endsection
 
-@section('clase', "content")
+@section('clase', "hero")
 @section('contenido')
 <h1>Bienvenido Yeison  que desea hacer?.</h1>
 <ul>

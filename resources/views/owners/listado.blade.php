@@ -3,15 +3,26 @@
 @section('titulo')
 	{{$titulo}}
 @endsection
-
+@section('clase', 'list')
 @section('contenido')
 	@if( $owners->isNotEmpty())
 		<h1>Listado de Propietarios</h1>
-		<ul>
+			<div class="listado">
+				
 			@foreach( $owners as $owner)
-			<li><strong>Propietario: </strong>{{$owner['cedula']}}{{$owner['nombre']}} {{$owner['direccion']}} {{$owner['telefono']}} {{$owner['email']}}</li>
+				<div  class="chart">
+					<ul>
+						<li><strong>Propietario: </strong>{{$owner['nombre']}} </li>
+						<li><strong>Cedula: </strong>{{$owner['cedula']}}</li>
+						<li><strong>Direccion: </strong>{{$owner['direccion']}}</li>
+						<li><strong>Telefono: </strong>{{$owner['telefono']}}</li>
+						<li><strong>Email: </strong>{{$owner['email']}}</li>
+					</ul>	
+				</div>
+
 			@endforeach
-		</ul>
+			</div>
+		
 		
 	@else
 		No hay Propietarios registrados

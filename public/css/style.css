@@ -42,23 +42,85 @@ header{
 	padding: 10px 10px;
 	border-radius: 5px;
 }
+/*Seccion de estilos para la pagina de inicio-----------------------------------------------------------------------------*/
+.hero{
 
-.content{
 	margin: auto;
+	/*border: 1px solid red;	*/
 	display: flex;
+	flex-direction: column;
+	align-items: center;
 	justify-content: center;
 
 }
 
+.hero h1{
+	font-size: 30px;
+	margin: 24px auto;
+}
+
+.hero img{
+	margin: 30px;
+}
+
+.hero form{
+	padding: 20px;
+	margin: 10px;
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .wrapper{
 	height: inherit;
 	width: 1000px;
 	display: inherit;
 	justify-content: inherit;
+	flex-direction: inherit;
+	align-items: inherit;
+	justify-content: inherit;
 	margin: auto;
+	flex-wrap: inherit;
+	flex-shrink: inherit;
+	/*border:  1px solid blue;*/
+}
+/*listados----------------------------------------------------------------------------------------------------------*/
+.list{
+	margin: auto;
+}
+.list h1{
+	text-align: center;
+}
+.listado{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+	flex-wrap: wrap;
+}
+.chart{
+	/*border: 1px solid red;*/
+	border-radius: 5px;
+	width: 350px;
+	/*height: 100px;*/
+	margin: 20px;
+	padding: 20px;
+	box-shadow: 0 0 5px gray;
+	background-color: #e1e1e1;
 
 }
+.chart ul{
+	padding: 0;
+	margin: 0;
+}
+.chart li{
+	list-style: none;
+}
 
+.chart li p{
+	margin: 10px;
+}
+
+/*Seccion del footer----------------------------------------------------------------------------------------------------*/
 footer{
 	display: flex;
 	justify-content: center;

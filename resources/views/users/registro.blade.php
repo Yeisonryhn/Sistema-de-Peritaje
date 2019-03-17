@@ -3,7 +3,7 @@
 	{{$titulo}}
 @endsection
 
-@section(clase, "registros")
+@section('clase', "hero")
 @section('contenido')
 	
 	<h1>Ingrese sus datos para registrarse en Peritex</h1>
