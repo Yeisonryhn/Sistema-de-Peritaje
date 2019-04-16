@@ -14,7 +14,12 @@ class InspeccionController extends Controller
      */
     public function index()
     {
-        //
+        $inspections = Inspeccion::all();
+        return view('inspections.listado',
+                    [
+                        'titulo' => 'Listado de Inspecciones',
+                        'inspecciones' => $inspections
+                    ]);
     }
 
     /**
@@ -24,7 +29,7 @@ class InspeccionController extends Controller
      */
     public function create()
     {
-        return view('inspection',
+        return view('inspections.registro',
                     [
                         'titulo'=>'Realizar Inspeccion',
                     ]);

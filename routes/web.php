@@ -13,7 +13,8 @@ Route::post('/propietarios', 'PropietarioController@store');
 
 
 //RUTAS DE INSPECCIONES
-Route::get('inspeccion','InspeccionController@create')->name('realizarInspeccion');
+Route::get('inspecciones', 'InspeccionController@index')->name('listaDeInspecciones');
+Route::get('inspecciones/nuevo','InspeccionController@create')->name('realizarInspeccion');
 Route::post('storeInspection', 'InspeccionController@store')->name('storeInspection');
 Auth::routes();
 

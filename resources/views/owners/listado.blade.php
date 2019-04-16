@@ -6,24 +6,37 @@
 @section('clase', 'list')
 @section('contenido')
 	@if( $owners->isNotEmpty())
-		<h1>Listado de Propietarios</h1>
-			<div class="listado">
-				
-			@foreach( $owners as $owner)
-				<div  class="chart">
-					<ul>
-						<li><strong>Propietario: </strong>{{$owner['nombre']}} </li>
-						<li><strong>Cedula: </strong>{{$owner['cedula']}}</li>
-						<li><strong>Direccion: </strong>{{$owner['direccion']}}</li>
-						<li><strong>Telefono: </strong>{{$owner['telefono']}}</li>
-						<li><strong>Email: </strong>{{$owner['email']}}</li>
-					</ul>	
-				</div>
-
-			@endforeach
-			</div>
-		
-		
+		<div class="d-flex justify-content-between m-3">
+			<h2 >Listado de Propietarios</h2>
+			<a class="btn btn-primary m-1" href="{{ route('crearPropietario') }}" title="">Nuevo Propietario</a>			
+		</div>
+		<table class="table table-striped">
+		  	<thead>
+			    <tr>
+					<th scope="col">ID</th>
+					<th scope="col">Propietario</th>
+					<th scope="col">Cedula</th>
+					<th scope="col">Direccion</th>
+					<th scope="col">Telefono</th>
+					<th scope="col">Email</th>
+					<th scope="col">Opciones</th>
+			    </tr>
+		  	</thead>
+		  	<tbody>
+		  	@foreach ($owners as $owner)
+		  		<tr>
+			      	<th scope="row">{{$owner->id}}</th>
+			      	<td>{{ $owner->nombre}}</td>
+			      	<td>{{ $owner->cedula}}</td>
+			      	<td>{{ $owner->direccion}}</td>
+			      	<td>{{ $owner->telefono}}</td>
+			      	<td>{{ $owner->email}}</td>
+			      	<td></td>
+		    	</tr>		
+		  	@endforeach	
+		        
+		  	</tbody>
+		</table>			
 	@else
 		No hay Propietarios registrados
 	@endif

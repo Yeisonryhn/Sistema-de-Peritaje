@@ -21,13 +21,13 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Usuarios<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{{ route('listaDeUsuarios') }}">Usuarios<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Propietarios</a>
+                        <a class="nav-link" href="{{ route('listaDePropietarios') }}">Propietarios</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="#" tabindex="-1" >Inspecciones</a>
+                        <a class="nav-link" href="{{ route('listaDeInspecciones') }}" tabindex="-1" >Inspecciones</a>
                     </li>
                 </ul>              
             </div>
@@ -47,9 +47,10 @@
     </header> --}}
     <main role="main" class="flex-shrink-0">
         <div class="container">
-            @yield('contenido')            
+            @yield('contenido')
         </div>
         </main>
+
     {{-- <section class="@yield('clase')">
         <div class="wrapper">
             @yield('contenido')
