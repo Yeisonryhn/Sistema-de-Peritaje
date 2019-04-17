@@ -21,7 +21,7 @@
    <form name="formulario" action="{{ url('menu') }}" method="GET" class="mx-auto" style="width: 300px;">
 	  	<div class="form-group" >
 		    <label for="usuario">Usuario:</label>
-		    <input type="text" class="{{}}" id="usuario" aria-describedby="emailHelp" placeholder="Usuario">
+		    <input type="text" class="form-control" id="usuario" aria-describedby="emailHelp" placeholder="Usuario">
 	  	</div>
 	  	<div class="form-group">
 		    <label for="contrasena">Contraseña</label>

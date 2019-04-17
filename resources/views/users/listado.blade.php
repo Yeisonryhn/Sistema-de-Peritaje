@@ -20,7 +20,11 @@
 			      	<th scope="row">{{$usuario->id}}</th>
 			      	<td>{{ $usuario->login}}</td>
 			      	<td>{{ $usuario->nombre}}</td>
-			      	<td></td>
+			      	<td>
+			      		<a href="{{ route('detalleUsuario', $usuario) }}">Detalle</a>
+			      		<a href=""></a>
+			      		<a href=""></a>
+			      	</td>
 		    	</tr>		
 		  	@endforeach	
 		        

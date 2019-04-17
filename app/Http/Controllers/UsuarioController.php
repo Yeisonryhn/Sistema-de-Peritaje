@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Usuario;
 use Illuminate\Http\Request;
-
+use Illuminate\Validation\Rule;
 class UsuarioController extends Controller
 {
     /**
@@ -52,8 +52,8 @@ class UsuarioController extends Controller
         //validaciones que debe tener la data
         $data = request()->validate([
             'login' => ['unique:usuarios,login', 'required'],
+            'clave' => [ 'required', 'min:6' , 'max:40'],
             'nombre' =>[ 'required' ],
-            'clave' => [ 'required', 'min:6' , 'max:40']
 
         ]);
         //fin validaciones
@@ -62,8 +62,8 @@ class UsuarioController extends Controller
         Usuario::create
         ([
             'login' => $data['login'],
+            'clave' => bcrypt($data['clave']),
             'nombre' => $data['nombre'],
-            'clave' => bcrypt($data['clave'])
         ]);
         return redirect()->route('listaDeUsuarios');
     }
@@ -76,7 +76,7 @@ class UsuarioController extends Controller
      */
     public function show(Usuario $usuario)
     {
-        //Muestra el detalle de un usuario en concreto
+        return view('users.detalle', ['titulo' => 'Detalle', 'usuario' => $usuario]);
     }
 
     /**
@@ -87,7 +87,11 @@ class UsuarioController extends Controller
      */
     public function edit(Usuario $usuario)
     {
-        //
+        //dd($usuario);
+        return view('users.edicion',[
+            'titulo' => 'Edicion de Usuarios',
+            'usuario' => $usuario
+        ]);
     }
 
     /**
@@ -99,6 +103,23 @@ class UsuarioController extends Controller
      */
     public function update(Request $request, Usuario $usuario)
     {
+        $data = request()->validate([
+            'login' => ['required', Rule::unique('usuarios')->ignore($usuario->id)],
+            'clave' => '' ,
+            'nombre' =>[ 'required' ],
+        ]);
+        //dd($data);
+        if($data['clave'] != null){
+            $data['clave'] = bcrypt($data['clave']);
+        }else{
+            unset($data['clave']);
+        }
+
+        $usuario->update($data);
+        //dd($usuario);
+
+        return redirect()->route('detalleUsuario', [ 'usuario' => $usuario ]);
+
         //
     }
 

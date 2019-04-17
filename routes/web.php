@@ -4,7 +4,10 @@ Route::get('/menu', 'InicioController@menu')->name('principal');
 //RUTAS DE USUARIOS
 Route::get('/usuarios', 'UsuarioController@index')->name('listaDeUsuarios');
 Route::post('/usuarios','UsuarioController@store');
+Route::get('/usuarios/{usuario}', 'UsuarioController@show')->name('detalleUsuario')->where('usuario','[0-9]+');
 Route::get('/usuarios/nuevo', 'UsuarioController@create')->name('crearUsuario');
+Route::put('/usuarios/{usuario}', 'UsuarioController@update');
+Route::get('/usuarios/{usuario}/editar','UsuarioController@edit')->name('editarUsuario');
 //RUTAS DE PROPIETARIOS
 Route::get('/propietarios', 'PropietarioController@index')->name('listaDePropietarios');
 Route::get('/propietarios/nuevo', 'PropietarioController@create')->name('crearPropietario');
