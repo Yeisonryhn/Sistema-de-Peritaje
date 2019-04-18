@@ -11,7 +11,7 @@
 		</div>			
 			<table class="table table-striped">
 		  	<thead>
-			    <tr><th scope="col">ID</th><th scope="col">Login</th><th scope="col">Nombre</th><th scope="col">Opciones</th>
+			    <tr><th scope="col">ID</th><th scope="col">Login</th><th scope="col">Nombre</th><th scope="col" class="d-flex justify-content-end">Opciones</th>
 			    </tr>
 		  	</thead>
 		  	<tbody>
@@ -20,10 +20,14 @@
 			      	<th scope="row">{{$usuario->id}}</th>
 			      	<td>{{ $usuario->login}}</td>
 			      	<td>{{ $usuario->nombre}}</td>
-			      	<td>
-			      		<a href="{{ route('detalleUsuario', $usuario) }}">Detalle</a>
-			      		<a href=""></a>
-			      		<a href=""></a>
+			      	<td class="d-flex justify-content-end" 	>
+			      		<form action="{{ route('eliminarUsuario' , $usuario) }}" method='POST'>
+			      			{{ csrf_field() }}
+			      			{{ method_field('DELETE') }}
+				      		<a href="{{ route('detalleUsuario', $usuario) }}" class="btn">Detalle</a>
+				      		<a href="{{ route('editarUsuario' , $usuario) }}" class="btn">Editar</a>
+				      		<button type="submit" class="btn btn-danger" value="eliminar">Eliminar</button>
+			      		</form>
 			      	</td>
 		    	</tr>		
 		  	@endforeach	

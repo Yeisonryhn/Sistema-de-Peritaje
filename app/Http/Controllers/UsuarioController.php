@@ -55,6 +55,13 @@ class UsuarioController extends Controller
             'clave' => [ 'required', 'min:6' , 'max:40'],
             'nombre' =>[ 'required' ],
 
+        ],[
+            'login.unique'=>'Ya existe un usuario con ese nombre',
+            'login.required'=>'El campo login es obligatorio',
+            'clave.required'=>'El campo clave es obligatorio',
+            'clave.min'=>'Minimo 6 caracteres',
+            'clave.max'=>'Máximo 40 Caracteres',
+            'nombre.required'=>'El campo nombre es obligatorio'
         ]);
         //fin validaciones
 
@@ -107,6 +114,13 @@ class UsuarioController extends Controller
             'login' => ['required', Rule::unique('usuarios')->ignore($usuario->id)],
             'clave' => '' ,
             'nombre' =>[ 'required' ],
+        ],[
+            'login.unique'=>'Ya existe un usuario con ese nombre',
+            'login.required'=>'El campo login es obligatorio',
+            'clave.required'=>'El campo clave es obligatorio',
+            'clave.min'=>'Minimo 6 caracteres',
+            'clave.max'=>'Máximo 40 Caracteres',
+            'nombre.required'=>'El campo nombre es obligatorio'
         ]);
         //dd($data);
         if($data['clave'] != null){
@@ -131,6 +145,9 @@ class UsuarioController extends Controller
      */
     public function destroy(Usuario $usuario)
     {
-        //
+        //dd($usuario);
+        $usuario->delete();
+
+        return redirect()->route('listaDeUsuarios');
     }
 }

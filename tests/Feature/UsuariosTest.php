@@ -242,11 +242,27 @@ class UsuariosTest extends TestCase
             ])->assertRedirect("usuarios/{$usuario->id}/editar")
             ->assertSessionHasErrors('nombre');
     }
-
     /** @test */
     function show_404_error_when_the_user_does_not_exist(){
         $this->get('usuarios/999')
             ->assertStatus(404)
             ->assertSee('Pagina no encontrada');
     }
+    /** @test */
+    function delete_user(){
+        $this->withoutExceptionHandling();
+
+        $usuario = factory(Usuario::class)->create([
+            'login' => 'usuario_a_eliminar'
+        ]);
+
+        $this->delete("usuarios/{$usuario->id}")
+        ->assertRedirect('usuarios');
+
+        $this->assertDatabaseMissing('usuarios', [
+            'login' => 'usuario_a_eliminar'
+        ]);
+    }
+
+
 }

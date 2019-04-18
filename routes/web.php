@@ -8,6 +8,7 @@ Route::get('/usuarios/{usuario}', 'UsuarioController@show')->name('detalleUsuari
 Route::get('/usuarios/nuevo', 'UsuarioController@create')->name('crearUsuario');
 Route::put('/usuarios/{usuario}', 'UsuarioController@update');
 Route::get('/usuarios/{usuario}/editar','UsuarioController@edit')->name('editarUsuario');
+Route::delete('/usuarios/{usuario}', 'UsuarioController@destroy')->name('eliminarUsuario');
 //RUTAS DE PROPIETARIOS
 Route::get('/propietarios', 'PropietarioController@index')->name('listaDePropietarios');
 Route::get('/propietarios/nuevo', 'PropietarioController@create')->name('crearPropietario');
