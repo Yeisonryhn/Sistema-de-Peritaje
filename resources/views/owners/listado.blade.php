@@ -31,7 +31,15 @@
 			      	<td>{{ $owner->direccion}}</td>
 			      	<td>{{ $owner->telefono}}</td>
 			      	<td>{{ $owner->email}}</td>
-			      	<td></td>
+			      	<td class="d-flex">
+			      		<a href="{{ route('detallePropietario',$owner) }}" class="btn" title="">Detalle</a>
+			      		<a href="{{ route('editarPropietario',$owner) }}" class="btn" title="">Editar</a>
+			      		<form action="{{ route('eliminarPropietario',$owner) }}" method="POST" accept-charset="utf-8">
+			      			{{ csrf_field() }}
+			      			{{ method_field('DELETE')}}
+			      			<input type="submit" class="btn btn-danger" value="Eliminar" name="">
+			      		</form>
+			      	</td>
 		    	</tr>		
 		  	@endforeach	
 		        

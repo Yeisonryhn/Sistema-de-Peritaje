@@ -13,9 +13,10 @@ Route::delete('/usuarios/{usuario}', 'UsuarioController@destroy')->name('elimina
 Route::get('/propietarios', 'PropietarioController@index')->name('listaDePropietarios');
 Route::get('/propietarios/nuevo', 'PropietarioController@create')->name('crearPropietario');
 Route::post('/propietarios', 'PropietarioController@store');
-
-
-
+Route::get('propietarios/{propietario}', 'PropietarioController@show')->name('detallePropietario')->where('propietario' , '[0-9]+');
+Route::get('propietarios/{propietario}/editar', 'PropietarioController@edit')->name('editarPropietario');
+Route::put('/propietarios/{propietario}', 'PropietarioController@update');
+Route::delete('/propietarios/{propietario}', 'PropietarioController@destroy')->name('eliminarPropietario');
 //RUTAS DE INSPECCIONES
 Route::get('inspecciones', 'InspeccionController@index')->name('listaDeInspecciones');
 Route::get('inspecciones/nuevo','InspeccionController@create')->name('realizarInspeccion');
