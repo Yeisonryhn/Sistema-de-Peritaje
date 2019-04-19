@@ -17,7 +17,7 @@
 	      	<th scope="col">Año</th>
 	      	<th scope="col">Estado del Carro</th>
 	      	<th scope="col">Cedula del Propietario</th>
-	      	<th colspan="" rowspan="" headers="" scope="col">Opciones</th>
+	      	<th class=" text-justify-end" colspan="" rowspan="" headers="" scope="col">Opciones</th>
 	    </tr>
   </thead>
   <tbody>
@@ -30,7 +30,15 @@
 	      	<td>{{ $inspection->anio }}</td>
 	      	<td>{{ $inspection->estado_carro }}</td>
 	      	<td>{{ $inspection->propietario_cedula }}</td>
-	      	<td></td>
+	      	<td class="d-flex justify-content-end">
+	      		<a href="{{ route('detalleInspeccion',$inspection) }}" class="btn" title="">Detalle</a>
+	      		<a href="{{ route('editarInspeccion',$inspection) }}" class="btn" title="">Editar</a>
+	      		<form action="{{ route('eliminarInspeccion',$inspection) }}" method="POST" accept-charset="utf-8">
+	      			{{ csrf_field() }}
+	      			{{ method_field('DELETE')}}
+	      			<input type="submit" class="btn btn-danger" value="Eliminar" name="">
+	      		</form>
+	      	</td>
 	    </tr>
     @endforeach
   </tbody>

@@ -21,6 +21,10 @@ Route::delete('/propietarios/{propietario}', 'PropietarioController@destroy')->n
 Route::get('inspecciones', 'InspeccionController@index')->name('listaDeInspecciones');
 Route::get('inspecciones/nuevo','InspeccionController@create')->name('realizarInspeccion');
 Route::post('storeInspection', 'InspeccionController@store')->name('storeInspection');
+Route::get('inspecciones/{inspeccion}', 'InspeccionController@show')->name('detalleInspeccion')->where('inspeccion' , '[0-9]+');
+Route::get('inspecciones/{inspeccion}/editar', 'InspeccionController@edit')->name('editarInspeccion');
+Route::put('/inspecciones/{inspeccion}', 'InspeccionController@update');
+Route::delete('/inspecciones/{inspeccion}', 'InspeccionController@destroy')->name('eliminarInspeccion');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
