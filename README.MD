@@ -20,7 +20,7 @@ de datos:
 
 Se pide desarrollar el sistema Web utilizando PHP con Laravel u otro Framework actual de PHP y base de
 datos Mysql, con los modelos, migraciones, las vistas y los controladores correspondientes.
-
+Adicional al parcial se crearon pruebas automatizadas.
 ### Elaborado Por:
 
 **Yeison Fuentes**
