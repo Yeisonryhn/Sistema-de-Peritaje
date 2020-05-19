@@ -18,7 +18,7 @@ class CreatePropietariosTable extends Migration
             $table->string('cedula',10)->unique();
             $table->string('nombre',40);
             $table->string('direccion',200);
-            $table->string('telefono',12);
+            $table->string('telefono',11);
             $table->string('email')->unique();
             $table->timestamps();
         });

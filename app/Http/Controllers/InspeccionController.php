@@ -92,7 +92,9 @@ class InspeccionController extends Controller
      */
     public function show(Inspeccion $inspeccion)
     {
-        //
+        return view('inspections.detalle',[
+            'inspeccion' => $inspeccion
+        ]);
     }
 
     /**
@@ -103,7 +105,10 @@ class InspeccionController extends Controller
      */
     public function edit(Inspeccion $inspeccion)
     {
-        //
+        return view ('inspections.edicion',[
+            'titulo' => 'Editar Inspeccion',
+            'inspeccion' => $inspeccion
+        ]);
     }
 
     /**
@@ -115,7 +120,46 @@ class InspeccionController extends Controller
      */
     public function update(Request $request, Inspeccion $inspeccion)
     {
-        //
+        $data = request()->validate([
+                'placa'=>['required', 'min:8', 'max:10'],
+                'cedula'=>['required', 'exists:propietarios,cedula'],
+                'marca'=>['required'],
+                'modelo'=>['required'],
+                'anio'=>['required','gte:1910','lte:2100'],
+                'estado_carro'=>['required', 'max:200']
+            ],[
+                //Mensajes de error
+                'placa.required'=>'Es obligatorio este campo',
+                'placa.min' => 'La placa no puede tener menos de 8 caracteres',
+                'placa.max' => 'La placa no puede tener mas de 10 caracteres',
+                'cedula.required' => 'Es obligatorio este campo',
+                'cedula.exists' => 'No existe ese propietario',
+                'marca.required' => 'Es obligatorio este campo',
+                'modelo.required' => 'Es obligatorio este campo',
+                'anio.required' => 'Es obligatorio este campo',
+                'anio.gte' => 'Año muy pequeño',
+                'anio.lte' => 'Año muy grande',
+                'estado_carro.required' => 'Es obligatorio este campo',
+                'estado_carro.max' => 'La cadena es demasiado larga'                
+            ]);//Fin de las validaciones
+        //dd($data);
+
+        $id = Propietario::where('cedula',$data['cedula'])->value('id');
+        $dataValidada = [
+            'placa'=> $data['placa'],
+            'marca'=>$data['marca'],
+            'modelo'=>$data['modelo'],
+            'anio'=>$data['anio'],
+            'estado_carro'=>$data['estado_carro'],
+            'propietario_cedula'=>$data['cedula'],
+            'propietario_id'=>$id
+        ];       
+        //dd($id);
+        $inspeccion->update($dataValidada);
+
+        return redirect()->route("detalleInspeccion",[
+            'inspeccion' => $inspeccion
+        ]);
     }
 
     /**
@@ -126,6 +170,7 @@ class InspeccionController extends Controller
      */
     public function destroy(Inspeccion $inspeccion)
     {
-        //
+        $inspeccion->delete();
+        return redirect()->route('listaDeInspecciones');
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Propietario;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class PropietarioController extends Controller
 {
@@ -46,11 +47,11 @@ class PropietarioController extends Controller
     {
         $data=request()->validate(
             [  
-                'nombre' => ['required'],
-                'direccion' => ['required'],
-                'telefono'=> ['required'],
+                'nombre' => ['required', 'max:40', 'min:2'],
+                'direccion' => ['required', 'max:200'],
+                'telefono'=> ['required', 'max:11'],
                 'email'=> ['required' ,'unique:propietarios,email' , 'email'],
-                'cedula'=> ['required','min:7' , 'max:10']
+                'cedula'=> ['required','min:7' , 'max:10', 'unique:propietarios,cedula']
         ]);
         //dd($data);
         Propietario::create
@@ -75,7 +76,9 @@ class PropietarioController extends Controller
      */
     public function show(Propietario $propietario)
     {
-        //
+        return view('owners.detalle', [
+            'propietario' => $propietario
+        ]);
     }
 
     /**
@@ -86,7 +89,10 @@ class PropietarioController extends Controller
      */
     public function edit(Propietario $propietario)
     {
-        //
+        return view('owners.edicion', [
+            'titulo' => 'Editar Propietario',
+            'propietario' => $propietario
+        ]);
     }
 
     /**
@@ -96,9 +102,24 @@ class PropietarioController extends Controller
      * @param  \App\Propietario  $propietario
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Propietario $propietario)
-    {
-        //
+    public function update(Request $request, Propietario $propietario){
+        $data = request()->validate([  
+                'nombre' => ['required', 'max:40', 'min:2'],
+                'direccion' => ['required', 'max:200'],
+                'telefono'=> ['required', 'max:11'],
+                'email'=> ['required' ,'email', Rule::unique('propietarios')->ignore($propietario->id)],
+                'cedula'=> ['required','min:7' , 'max:10', Rule::unique('propietarios')->ignore($propietario->id)]
+        ]);
+
+        if( $data['cedula'] == null){
+            unset($data['cedula']);
+        }
+
+        $propietario->update($data);
+
+        return redirect()->route('detallePropietario', [
+            'propietario' => $propietario
+        ]);
     }
 
     /**
@@ -109,6 +130,7 @@ class PropietarioController extends Controller
      */
     public function destroy(Propietario $propietario)
     {
-        //
+        $propietario->delete();
+        return redirect()->route('listaDePropietarios');
     }
 }
